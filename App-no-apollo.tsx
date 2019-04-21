@@ -1,15 +1,7 @@
 import React, {Component} from "react"
 import {StyleSheet, View} from "react-native"
 import RNPickerSelect from "react-native-picker-select"
-import ApolloClient from "apollo-boost";
-import {ApolloProvider, graphql} from "react-apollo"
-import gql from "graphql-tag"
 import {status} from "./generated/enums"
-
-
-const client = new ApolloClient({
-  uri: "http://localhost:4000/graphql"
-})
 
 const enumToArray = (enumValue: any): status[] => {
   return Object.keys(enumValue)
@@ -23,7 +15,6 @@ interface State {
 }
 
 const availableUserStatuses = enumToArray(status)
-
 
 class UpdateUserStatus extends Component<Props, State> {
   state: State = {
@@ -39,7 +30,6 @@ class UpdateUserStatus extends Component<Props, State> {
     }))
 
     return (
-
       <View>
         <RNPickerSelect
           items={items}
@@ -51,7 +41,6 @@ class UpdateUserStatus extends Component<Props, State> {
           style={selectStyles}
           value={selectedStatus} />
       </View>
-
     )
   }
 }
@@ -68,28 +57,4 @@ const selectStyles = StyleSheet.create({
   }
 })
 
-
-// client.query({
-//   query: gql`
-//     query StatusQuery {
-//       status
-//     }
-//   `
-// })
-//   .then((data) => console.log(data))
-//   .catch((error) => console.error(error))
-
 export default UpdateUserStatus
-
-// const STATUS_QUERY = gql`
-//   query statusQuery {
-//     status
-//   }
-// `
-
-// export default graphql(STATUS_QUERY, {
-//   name: "statusQuery",
-//   options: {
-//     fetchPolicy: "network-only"
-//   }
-// })(UpdateUserStatus)
