@@ -1,0 +1,69 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "This is a simple user API for generating types",
+    "version" : "1.0.0",
+    "title" : "Simple User API",
+    "license" : {
+      "name" : "Apache 2.0",
+      "url" : "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "host" : "virtserver.swaggerhub.com",
+  "basePath" : "/tom-parsons/test/1.0.0",
+  "tags" : [ {
+    "name" : "developers",
+    "description" : "Developers can use this"
+  } ],
+  "schemes" : [ "https" ],
+  "paths" : {
+    "/users" : {
+      "get" : {
+        "tags" : [ "developers" ],
+        "summary" : "searches users",
+        "description" : "By passing in the appropriate options, you can search for\navailable users in the system\n",
+        "operationId" : "searchUsers",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "searchString",
+          "in" : "query",
+          "description" : "pass an optional search string for looking up users",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "search results matching criteria",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/User"
+              }
+            }
+          },
+          "400" : {
+            "description" : "bad input parameter"
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "User" : {
+      "type" : "object",
+      "required" : [ "id", "status" ],
+      "properties" : {
+        "id" : {
+          "type" : "string",
+          "format" : "uuid",
+          "example" : "d290f1ee-6c54-4b01-90e6-d701748f0851"
+        },
+        "status": {
+          "type": "string",
+          "example" : "active",
+          "enum" : [ "active", "pending", "cancelled", "disabled"]
+        }
+      }
+    }
+  }
+}
