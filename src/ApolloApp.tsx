@@ -5,8 +5,8 @@ import ApolloClient from "apollo-boost"
 import {ApolloProvider} from "react-apollo"
 import gql from "graphql-tag"
 
-import {Status} from "./generated/globalTypes"
-import {StatusQuery} from "./generated/StatusQuery"
+import {Status} from "../generated/globalTypes"
+import {StatusQuery} from "../generated/StatusQuery"
 
 export const query = gql`
   query StatusQuery {
@@ -48,6 +48,7 @@ class UpdateUserStatus extends Component<Props, State> {
     client.query({
       query
     }).then(({data}: QueryResult) => {
+      console.log(date)
       this.setState({
         selectedStatus: data.status
       })

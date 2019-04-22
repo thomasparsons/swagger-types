@@ -1,7 +1,7 @@
 import React, {Component} from "react"
 
-import Swagger from "./SwaggerApp"
-import Graph from "./ApolloApp"
+import Swagger from "./src/SwaggerApp"
+import Graph from "./src/ApolloApp"
 
 const swagger = false
 

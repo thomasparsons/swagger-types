@@ -8,6 +8,7 @@
 export enum Status {
   active = "active",
   cancelled = "cancelled",
+  disabled = "disabled",
   pending = "pending",
 }
 

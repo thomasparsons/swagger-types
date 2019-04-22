@@ -1,12 +1,9 @@
 {
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
-    "android": "expo start --android",
-    "eject": "expo eject",
     "generate-types-graph": "apollo codegen:generate --schema schema.json --target typescript generated",
     "generate-types-swagger": "node ./generate",
     "graph": "node graph.js",
-    "ios": "expo start --ios",
     "start": "expo start",
     "update-schema": "apollo schema:download --endpoint=http://localhost:4000/graphql schema.json"
   },

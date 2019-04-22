@@ -1,7 +1,7 @@
 import React, {Component} from "react"
 import {StyleSheet, View} from "react-native"
 import RNPickerSelect from "react-native-picker-select"
-import {status} from "./generated/enums"
+import {status} from "../generated/enums"
 
 const enumToArray = (enumValue: any): status[] => {
   return Object.keys(enumValue)
