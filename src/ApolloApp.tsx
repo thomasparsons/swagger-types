@@ -7,7 +7,7 @@ import {ApolloQueryResult} from "apollo-client"
 import gql from "graphql-tag"
 
 import {Status} from "../generated/globalTypes"
-import {StatusQuery} from "../generated/StatusQuery"
+import {StatusQuery} from "./generated/StatusQuery"
 
 export const query = gql`
   query StatusQuery {
@@ -27,7 +27,7 @@ const enumToArray = (enumValue: any): Status[] => {
 interface Props {}
 
 interface State {
-  selectedStatus: Status | null
+  selectedStatus: Status
 }
 
 const availableUserStatuses = enumToArray(Status)
