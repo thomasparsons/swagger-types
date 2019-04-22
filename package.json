@@ -6,7 +6,6 @@
     "generate-types": "node ./generate",
     "graph": "node graph.js",
     "ios": "expo start --ios",
-    "start-api": "node server.js",
     "update-schema": "apollo schema:download --endpoint=http://localhost:4000/graphql schema.json",
     "generate-types-graph": "apollo codegen:generate --localSchemaFile=schema.json --target=typescript --globalTypesFile=generated/graphql-global-types.ts",
     "start": "expo start"
