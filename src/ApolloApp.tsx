@@ -3,6 +3,7 @@ import {StyleSheet, View} from "react-native"
 import RNPickerSelect from "react-native-picker-select"
 import ApolloClient from "apollo-boost"
 import {ApolloProvider} from "react-apollo"
+import {ApolloQueryResult} from "apollo-client"
 import gql from "graphql-tag"
 
 import {Status} from "../generated/globalTypes"
@@ -26,19 +27,13 @@ const enumToArray = (enumValue: any): Status[] => {
 interface Props {}
 
 interface State {
-  selectedStatus: Status
-}
-
-interface QueryResult {
-  data: {
-    status: StatusQuery
-  }
+  selectedStatus: Status | null
 }
 
 const availableUserStatuses = enumToArray(Status)
 
 class UpdateUserStatus extends Component<Props, State> {
-  state:State = {
+  state: State = {
     selectedStatus: availableUserStatuses[2]
   }
 
@@ -47,10 +42,9 @@ class UpdateUserStatus extends Component<Props, State> {
 
     client.query({
       query
-    }).then(({data}: QueryResult) => {
-      console.log(date)
+    }).then((res: ApolloQueryResult<StatusQuery>) => {
       this.setState({
-        selectedStatus: data.status
+        selectedStatus: res.data.status
       })
     })
   }
@@ -68,7 +62,7 @@ class UpdateUserStatus extends Component<Props, State> {
         <View>
           <RNPickerSelect
             items={items}
-            onValueChange={(value: status) => {
+            onValueChange={(value: Status) => {
               this.setState({
                 selectedStatus: value
               })

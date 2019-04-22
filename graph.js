@@ -11,7 +11,7 @@ const schema = buildSchema(`
   }
 
   type Query {
-    status: Status
+    status: Status!
   }
 `)
 
