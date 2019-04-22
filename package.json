@@ -3,12 +3,12 @@
   "scripts": {
     "android": "expo start --android",
     "eject": "expo eject",
-    "generate-types": "node ./generate",
+    "generate-types-graph": "apollo codegen:generate --schema schema.json --target typescript generated",
+    "generate-types-swagger": "node ./generate",
     "graph": "node graph.js",
     "ios": "expo start --ios",
-    "update-schema": "apollo schema:download --endpoint=http://localhost:4000/graphql schema.json",
-    "generate-types-graph": "apollo codegen:generate --localSchemaFile=schema.json --target=typescript --globalTypesFile=generated/graphql-global-types.ts",
-    "start": "expo start"
+    "start": "expo start",
+    "update-schema": "apollo schema:download --endpoint=http://localhost:4000/graphql schema.json"
   },
   "dependencies": {
     "apollo-boost": "^0.3.1",
