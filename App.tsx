@@ -1,17 +1,20 @@
 import React, {Component} from "react"
 
-import Swagger from "./src/SwaggerApp"
-import Graph from "./src/ApolloApp"
+// import Swagger from "./src/SwaggerApp"
+// import Graph from "./src/ApolloApp"
 
-const swagger = false
+import ApolloSwaggerApp from "./src/ApolloSwaggerApp"
+
+// const swagger = false
 
 class App extends Component {
   render() {
-    if (swagger) {
-      return <Swagger />
-    }
+    // if (swagger) {
+    //   return <Swagger />
+    // }
 
-    return <Graph />
+    // return <Graph />
+    return <ApolloSwaggerApp />
   }
 }
 

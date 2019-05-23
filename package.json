@@ -12,7 +12,7 @@
     "swagger-to-graphql": "yarn create-gen && echo const v = \\` >> ./graph/generated.ts && swagger-to-graphql --swagger=swagger.json >> ./graph/generated.ts && echo \\` >> ./graph/generated.ts && echo \n >> ./graph/generated.ts && echo module.exports = v >> ./graph/generated.ts",
 
     "set-up": "yarn swagger-to-graphql && yarn swagger-graph",
-    "complete": "yarn update-schema && yarn generate-types-graph"
+    "complete": "yarn update-schema && yarn generate-types-graph && yarn start"
   },
   "dependencies": {
     "apollo-boost": "^0.3.1",

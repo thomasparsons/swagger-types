@@ -18,6 +18,7 @@ enum User_status {
   pending
   cancelled
   disabled
+  hello
 }
 
 `
