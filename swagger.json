@@ -61,7 +61,7 @@
         "status": {
           "type": "string",
           "example" : "active",
-          "enum" : [ "active", "pending", "cancelled", "disabled"]
+          "enum" : [ "active", "pending", "cancelled", "disabled", "hello"]
         }
       }
     }
