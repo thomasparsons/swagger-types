@@ -7,7 +7,9 @@
     "swagger-graph": "node graph/swagger-2.ts",
     "start": "expo start",
     "update-schema": "apollo schema:download --endpoint=http://localhost:4000/graphql schema.json",
-    "swagger-to-graphql": "swagger-to-graphql --swagger=swagger.json > ./graph/generated.ts",
+
+    "create-gen": "rm ./graph/generated.ts && touch ./graph/generated.ts",
+    "swagger-to-graphql": "yarn create-gen && echo const v = \\` >> ./graph/generated.ts && swagger-to-graphql --swagger=swagger.json >> ./graph/generated.ts && echo \\` >> ./graph/generated.ts && echo \n >> ./graph/generated.ts && echo module.exports = v >> ./graph/generated.ts",
 
     "set-up": "yarn swagger-to-graphql && yarn swagger-graph",
     "complete": "yarn update-schema && yarn generate-types-graph"
