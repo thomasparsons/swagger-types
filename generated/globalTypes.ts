@@ -9,7 +9,6 @@ export enum User_status {
   active = "active",
   cancelled = "cancelled",
   disabled = "disabled",
-  hello = "hello",
   pending = "pending",
 }
 

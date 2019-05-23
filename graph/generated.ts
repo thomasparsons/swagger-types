@@ -1,5 +1,4 @@
-const v = `
-type Query {
+const v = `type Query {
   """
   By passing in the appropriate options, you can search for
   available users in the system
@@ -18,8 +17,6 @@ enum User_status {
   pending
   cancelled
   disabled
-  hello
-}
+}`
 
-`
 module.exports = v
