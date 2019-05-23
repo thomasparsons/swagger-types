@@ -3,19 +3,26 @@
   "scripts": {
     "generate-types-graph": "apollo codegen:generate --schema schema.json --target typescript generated",
     "generate-types-swagger": "node ./generate",
-    "graph": "node graph.js",
+    "graph": "node graph/index.ts",
+    "swagger-graph": "node graph/swagger-2.ts",
     "start": "expo start",
-    "update-schema": "apollo schema:download --endpoint=http://localhost:4000/graphql schema.json"
+    "update-schema": "apollo schema:download --endpoint=http://localhost:4000/graphql schema.json",
+    "swagger-to-graphql": "swagger-to-graphql --swagger=swagger.json > ./graph/generated.gql"
   },
   "dependencies": {
     "apollo-boost": "^0.3.1",
     "apollo-client": "^2.5.1",
+    "apollo-server": "^2.5.0",
+    "apollo-server-express": "^2.5.0",
     "body-parser": "^1.18.3",
     "expo": "^32.0.0",
     "express": "^4.16.4",
     "express-graphql": "^0.8.0",
+    "fs": "0.0.1-security",
     "graphql": "^14.2.1",
+    "graphql-liftoff": "git+https://github.com/target/graphql-liftoff.git",
     "graphql-tag": "^2.10.1",
+    "path": "^0.12.7",
     "react": "16.8.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-32.0.0.tar.gz",
     "react-native-picker-select": "^6.1.0"
@@ -47,7 +54,9 @@
     "eslint-plugin-react": "^7.12.4",
     "eslint-plugin-react-native": "^3.6.0",
     "eslint-plugin-typescript": "^0.14.0",
+    "graphql-tools": "^4.0.4",
     "react-apollo": "^2.5.4",
+    "swagger-to-graphql": "^1.6.0",
     "swagger-ts-generator": "^1.1.56",
     "tslint": "^5.14.0"
   },

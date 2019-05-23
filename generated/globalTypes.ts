@@ -5,7 +5,7 @@
 // START Enums and Input Objects
 //==============================================================
 
-export enum Status {
+export enum User_status {
   active = "active",
   cancelled = "cancelled",
   disabled = "disabled",
